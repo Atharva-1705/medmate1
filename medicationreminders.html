@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medication Reminders</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #28a745;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+        }
+
+        h1 {
+            color: #28a745;
+            text-align: center;
+        }
+
+        label {
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        input[type="file"], input[type="time"], input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        footer {
+            text-align: center;
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Medication Reminders</h1>
+    </header>
+
+    <!-- Container Section -->
+    <div class="container">
+
+        <!-- Upload Medicine Photo Section -->
+        <h2>SET REMINDER</h2>
+        <form id="medicine-form">
+            <label for="medicine-photo">Select a photo of your medicine</label>
+            <input type="file" id="medicine-photo" accept="image/*" required>
+
+            <label for="reminder-time">Set Reminder Time</label>
+            <input type="time" id="reminder-time" required>
+
+            <label for="reminder-note">Add a Reminder Note (optional)</label>
+            <input type="text" id="reminder-note" placeholder="Enter any notes about the medication">
+
+            <button type="submit">Set Reminder</button>
+        </form>
+
+        <div id="reminder-message" style="margin-top: 20px; text-align: center;"></div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Healthcare App. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Handle form submission for setting reminders
+        document.getElementById('medicine-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const reminderTime = document.getElementById('reminder-time').value;
+            const reminderNote = document.getElementById('reminder-note').value;
+            const reminderMessage = `Reminder set for ${reminderTime}. Note: ${reminderNote || "No additional notes."}`;
+            
+            document.getElementById('reminder-message').innerText = reminderMessage;
+
+            // You can add image processing logic here to recognize the medicine
+            // For demonstration, we will just show a message for now
+            alert("Medicine photo uploaded! (Image processing not implemented in this demo.)");
+        });
+    </script>
+
+</body>
+</html>

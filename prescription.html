@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicine Ordering & Prescription Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #28a745;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+        }
+
+        h1 {
+            color: #28a745;
+            text-align: center;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        label {
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        input[type="text"], input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .medicine-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .medicine-card {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 20px;
+            width: 220px;
+            text-align: center;
+        }
+
+        .medicine-card h3 {
+            margin-bottom: 10px;
+        }
+
+        footer {
+            text-align: center;
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Medicine Ordering & Prescription Management</h1>
+    </header>
+
+    <!-- Container Section -->
+    <div class="container">
+
+        <!-- Upload Prescription Section -->
+        <div class="section">
+            <h2>Upload Prescription</h2>
+            <form id="prescription-form">
+                <label for="file">Upload your Prescription</label>
+                <input type="file" id="file" name="file" accept="image/*, .pdf" required>
+                <button type="submit">Submit Prescription</button>
+            </form>
+        </div>
+
+        <!-- Medicine Ordering Section -->
+        <div class="section">
+            <h2>Order Medicines</h2>
+            <label for="search">Search Medicine</label>
+            <input type="text" id="search" placeholder="Enter medicine name...">
+            
+            <!-- Example List of Medicines -->
+            <div class="medicine-list" id="medicine-list">
+                <div class="medicine-card">
+                    <h3>Paracetamol</h3>
+                    <p>500mg - ₹50</p>
+                    <button>Add to Cart</button>
+                </div>
+                <div class="medicine-card">
+                    <h3>Amoxicillin</h3>
+                    <p>250mg - ₹80</p>
+                    <button>Add to Cart</button>
+                </div>
+                <div class="medicine-card">
+                    <h3>Ibuprofen</h3>
+                    <p>400mg - ₹70</p>
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Manage Prescription Section -->
+        <div class="section">
+            <h2>Manage Prescription</h2>
+            <form id="manage-prescription-form">
+                <label for="prescription-id">Enter Prescription ID</label>
+                <input type="text" id="prescription-id" placeholder="Prescription ID">
+                <button type="submit">View Prescription</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Healthcare App. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

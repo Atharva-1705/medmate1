@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Records Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #17a2b8;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+        }
+
+        h1 {
+            color: #17a2b8;
+            text-align: center;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        label {
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        input[type="file"], input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #17a2b8;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        button:hover {
+            background-color: #138496;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #17a2b8;
+            color: white;
+        }
+
+        .delete-btn {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 6px 12px;
+            cursor: pointer;
+        }
+
+        .delete-btn:hover {
+            background-color: #c82333;
+        }
+
+        footer {
+            text-align: center;
+            background-color: #17a2b8;
+            color: white;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Health Records Management</h1>
+    </header>
+
+    <!-- Container Section -->
+    <div class="container">
+
+        <!-- Upload Health Record Section -->
+        <div class="section">
+            <h2>Upload New Health Record</h2>
+            <form id="upload-form">
+                <label for="record-title">Record Title</label>
+                <input type="text" id="record-title" placeholder="Enter record title (e.g., Blood Test Report)" required>
+
+                <label for="file-upload">Upload Health Record (PDF, Image)</label>
+                <input type="file" id="file-upload" name="file-upload" accept=".pdf, image/*" required>
+
+                <button type="submit">Upload Record</button>
+            </form>
+        </div>
+
+        <!-- View Health Records Section -->
+        <div class="section">
+            <h2>Your Health Records</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Record Title</th>
+                        <th>Date Uploaded</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="record-table">
+                    <!-- Example record entry -->
+                    <tr>
+                        <td>Blood Test Report</td>
+                        <td>12/09/2024</td>
+                        <td>
+                            <button class="delete-btn" onclick="deleteRecord(this)">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>X-ray Scan</td>
+                        <td>05/08/2024</td>
+                        <td>
+                            <button class="delete-btn" onclick="deleteRecord(this)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Healthcare App. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Handle form submission for uploading records
+        document.getElementById('upload-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            let recordTitle = document.getElementById('record-title').value;
+            let today = new Date();
+            let date = today.toLocaleDateString();
+
+            // Add new record to the table (you can replace this with server-side logic)
+            let recordTable = document.getElementById('record-table');
+            let newRow = recordTable.insertRow();
+            let cell1 = newRow.insertCell(0);
+            let cell2 = newRow.insertCell(1);
+            let cell3 = newRow.insertCell(2);
+
+            cell1.innerHTML = recordTitle;
+            cell2.innerHTML = date;
+            cell3.innerHTML = `<button class="delete-btn" onclick="deleteRecord(this)">Delete</button>`;
+            
+            // Clear the form
+            document.getElementById('upload-form').reset();
+
+            alert("Health record uploaded successfully!");
+        });
+
+        // Function to delete a record from the table
+        function deleteRecord(btn) {
+            let row = btn.parentNode.parentNode;
+            row.parentNode.removeChild(row);
+            alert("Record deleted successfully!");
+        }
+    </script>
+
+</body>
+</html>
