@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Insurance</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+        }
+
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+        }
+
+        h1 {
+            color: #007bff;
+            text-align: center;
+        }
+
+        .plan {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            background-color: #e9ecef;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .plan h2 {
+            color: #007bff;
+        }
+
+        .plan ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .plan ul li {
+            margin-bottom: 10px;
+        }
+
+        .plan button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .plan button:hover {
+            background-color: #0056b3;
+        }
+
+        .quote-form {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #f1f1f1;
+            border-radius: 8px;
+        }
+
+        .quote-form label {
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .quote-form input[type="text"], .quote-form input[type="email"], .quote-form input[type="tel"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .quote-form button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .quote-form button:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            text-align: center;
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Health Insurance Plans</h1>
+    </header>
+
+    <!-- Container Section -->
+    <div class="container">
+        
+        <!-- Plan 1 -->
+        <div class="plan">
+            <div>
+                <h2>Basic Health Plan</h2>
+                <ul>
+                    <li>Coverage up to Rs.50,000</li>
+                    <li>Annual health check-ups</li>
+                    <li>24/7 customer support</li>
+                </ul>
+            </div>
+            <div>
+                <button>Choose Plan</button>
+            </div>
+        </div>
+
+        <!-- Plan 2 -->
+        <div class="plan">
+            <div>
+                <h2>Family Health Plan</h2>
+                <ul>
+                    <li>Coverage up to Rs.100,000</li>
+                    <li>Includes spouse and children</li>
+                    <li>Free dental and vision care</li>
+                </ul>
+            </div>
+            <div>
+                <button>Choose Plan</button>
+            </div>
+        </div>
+
+        <!-- Plan 3 -->
+        <div class="plan">
+            <div>
+                <h2>Premium Health Plan</h2>
+                <ul>
+                    <li>Coverage up to Rs.250,000</li>
+                    <li>Worldwide health coverage</li>
+                    <li>Private room during hospital stay</li>
+                </ul>
+            </div>
+            <div>
+                <button>Choose Plan</button>
+            </div>
+        </div>
+
+        <!-- Quote Form -->
+        <div class="quote-form">
+            <h2>Get a Free Health Insurance Quote</h2>
+            <form id="quote-form">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" placeholder="Enter your name" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" placeholder="Enter your phone number" required>
+
+                <button type="submit">Get a Quote</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Healthcare App. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Handle form submission for quote form
+        document.getElementById('quote-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert("Your quote request has been submitted! We will contact you soon.");
+            document.getElementById('quote-form').reset();
+        });
+    </script>
+
+</body>
+</html>

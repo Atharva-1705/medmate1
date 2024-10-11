@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency Services</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+        }
+
+        header {
+            background-color: #ff4d4d;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+        }
+
+        h1 {
+            color: #ff4d4d;
+            text-align: center;
+        }
+
+        .contact-list {
+            margin: 20px 0;
+        }
+
+        .contact-list h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .contact-list ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .contact-list ul li {
+            background-color: #e9ecef;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+
+        .contact-list ul li span {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .instruction {
+            margin: 20px 0;
+        }
+
+        .instruction h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .instruction p {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .assistance-form {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #f1f1f1;
+            border-radius: 8px;
+        }
+
+        .assistance-form label {
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .assistance-form input[type="text"], .assistance-form input[type="email"], .assistance-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .assistance-form textarea {
+            resize: vertical;
+            height: 150px;
+        }
+
+        .assistance-form button {
+            background-color: #ff4d4d;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .assistance-form button:hover {
+            background-color: #d93939;
+        }
+
+        footer {
+            text-align: center;
+            background-color: #ff4d4d;
+            color: white;
+            padding: 10px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Emergency Services</h1>
+    </header>
+
+    <!-- Container Section -->
+    <div class="container">
+
+        <!-- Emergency Contacts Section -->
+        <div class="contact-list">
+            <h2>Emergency Contact Numbers</h2>
+            <ul>
+                <li><span>Medical Emergency:</span> +1-800-123-4567</li>
+                <li><span>Fire Department:</span> +1-800-234-5678</li>
+                <li><span>Police:</span> +1-800-345-6789</li>
+                <li><span>Ambulance:</span> +1-800-456-7890</li>
+                <li><span>Poison Control:</span> +1-800-567-8901</li>
+            </ul>
+        </div>
+
+        <!-- Emergency Instructions Section -->
+        <div class="instruction">
+            <h2>What to Do in an Emergency</h2>
+            <p>1. Stay calm and assess the situation.</p>
+            <p>2. Call the appropriate emergency service listed above.</p>
+            <p>3. Provide your location and explain the situation clearly.</p>
+            <p>4. Follow the instructions provided by the emergency personnel.</p>
+            <p>5. If possible, provide first aid while waiting for professional help to arrive.</p>
+        </div>
+
+        <!-- Request Assistance Form Section -->
+        <div class="assistance-form">
+            <h2>Request Immediate Assistance</h2>
+            <form id="assistance-form">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" placeholder="Enter your full name" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+
+                <label for="message">Describe the Emergency</label>
+                <textarea id="message" placeholder="Briefly describe the situation" required></textarea>
+
+                <button type="submit">Request Assistance</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Healthcare App. Emergency Services Available 24/7</p>
+    </footer>
+
+    <script>
+        // Handle form submission for assistance form
+        document.getElementById('assistance-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert("Your emergency request has been submitted. Help is on the way!");
+            document.getElementById('assistance-form').reset();
+        });
+    </script>
+
+</body>
+</html>
