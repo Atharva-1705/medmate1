@@ -18,11 +18,22 @@
             color: white;
             padding: 1rem;
             text-align: center;
+            position: relative;
+        }
+
+        header #user-info {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            color: white;
         }
 
         nav {
             margin: 1rem;
             text-align: center;
+            position: sticky;
+            top: 0;
+            background-color: whitesmoke;
         }
 
         nav a {
@@ -78,7 +89,6 @@
             padding: 1rem;
             text-align: center;
         }
-
     </style>
 </head>
 <body>
@@ -87,16 +97,19 @@
     <header>
         <h1>Welcome to MEDMATE</h1>
         <p>Manage Your Health Easily</p>
+        <div id="user-info">
+            <span id="username"></span>
+            <button id="logout-btn" style="display: none;">Logout</button>
+        </div>
     </header>
 
     <!-- Navigation -->
     <nav>
         <a href="helathcare.html">Home</a>
         <a href="aboutus.html">About Us</a>
-        <a href="contactus.html">Contact us</a>
-        <a href="login.html">login</a>
+        <a href="contactus.html">Contact Us</a>
+        <a href="login.html" id="login-link">Login</a>
         <a href="createaccount.html">Sign up</a>
-
     </nav>
 
     <!-- Hero Section -->
@@ -107,29 +120,39 @@
 
     <!-- Features Section -->
     <section class="features">
-
         <div class="feature-box">
             <img src="appointment.png" alt="Doctor Appointments">
-            <a href="appointment.html"><h3>Doctor Search and Booking</h3></a>
+            <a href="#" onclick="checkLogin('appointment.html')"><h3>Doctor Search and Booking</h3></a>
             <p>Easily manage and book doctor appointments.</p>
         </div>
 
         <div class="feature-box">
             <img src="12.png" alt="Prescription management"><br>
-            <a href="prescription.html"><h3>Prescription Management</h3></a>
-            <p>Order and manage medicines on your Fingertips</p>
+            <a href="#" onclick="checkLogin('prescription.html')"><h3>Prescription Management</h3></a>
+            <p>Order and manage medicines on your fingertips.</p>
         </div>
         <div class="feature-box">
             <img src="record.png" alt="Health Records">
-            <a href="healthrecord.html"><h3>Health Records Management</h3></a>
+            <a href="#" onclick="checkLogin('healthrecord.html')"><h3>Health Records Management</h3></a>
             <p>Easily manage your health records.</p>
         </div>
-       </section>
+    </section>
+
     <section class="features">
         <div class="feature-box">
             <img src="reminder.png" alt="Reminder">
-            <a href="medicationreminders.html"><h3>Set Medication Reminders</h3></a>
-            <p>Set Reminders for your Medications</p>
+            <a href="#" onclick="checkLogin('medicationreminders.html')"><h3>Set Medication Reminders</h3></a>
+            <p>Set reminders for your medications.</p>
+        </div>
+        <div class="feature-box">
+            <img src="insurance.png" alt="Health Insurance">
+            <a href="#" onclick="checkLogin('healthinsurance.html')"><h3>Health Insurance</h3></a>
+            <p>Protect your health and secure your future.</p>
+        </div>
+        <div class="feature-box">
+            <img src="emergency.png" alt="Emergency Services">
+            <a href="#" onclick="checkLogin('emergencyservices.html')"><h3>Emergency Services</h3></a>
+            <p>Emergency contact section.</p>
         </div>
     </section>
 
@@ -137,6 +160,39 @@
     <footer>
         <p>&copy; 2024 Healthcare App. All Rights Reserved.</p>
     </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Check login status on page load
+        window.onload = function() {
+            const username = localStorage.getItem('username');
+            if (username) {
+                document.getElementById('username').textContent = `Hello, ${username}`;
+                document.getElementById('login-link').style.display = 'none';
+                document.getElementById('logout-btn').style.display = 'inline';
+            }
+        };
+
+        // Function to check if user is logged in
+        function checkLogin(redirectPage) {
+            const username = localStorage.getItem('username');
+            if (username) {
+                // User is logged in, allow access to the page
+                window.location.href = redirectPage;
+            } else {
+                // User is not logged in, show message and redirect to login page
+                alert('Please log in to access this feature.');
+                window.location.href = 'login.html';
+            }
+        }
+
+        // Logout function
+        document.getElementById('logout-btn').addEventListener('click', function() {
+            localStorage.removeItem('username');
+            alert('You have been logged out.');
+            window.location.reload();
+        });
+    </script>
 
 </body>
 </html>
